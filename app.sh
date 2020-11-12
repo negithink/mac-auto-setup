@@ -46,7 +46,11 @@ brew install pyenv
 brew install nodebrew
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"
 sudo installer -pkg /tmp/AWSCLIV2.pkg -target /
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+pyenv install 3.9.0
+pyenv global 3.9.0
+pip3 install aws-mfa
+brew install direnv
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer

@@ -167,32 +167,32 @@ fi
 #
 # CocoaPods
 #
-if ! command_exists pod ; then
-  echo " --------- CocoaPods ---------"
-  echo $pass | sudo -S gem install -n /usr/local/bin cocoapods --pre
-  pod setup
-  echo " ------------ END ------------"
-fi
+# if ! command_exists pod ; then
+#   echo " --------- CocoaPods ---------"
+#   echo $pass | sudo -S gem install -n /usr/local/bin cocoapods --pre
+#   pod setup
+#   echo " ------------ END ------------"
+# fi
 
 #
 # Carthage
 #
-if ! command_exists carthage ; then
-  echo " --------- Carthage ----------"
-  brew install carthage
-  echo " ------------ END ------------"
-fi
+# if ! command_exists carthage ; then
+#   echo " --------- Carthage ----------"
+#   brew install carthage
+#   echo " ------------ END ------------"
+# fi
 
 #
 # swiftenv
 #
-if ! command_exists swiftenv ; then
-  echo " --------- swiftenv ----------"
-  brew install kylef/formulae/swiftenv
-  echo 'if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi' >> ~/.yadr/zsh/private.zsh
-  swiftenv rehash
-  echo " ------------ END ------------"
-fi
+# if ! command_exists swiftenv ; then
+#   echo " --------- swiftenv ----------"
+#   brew install kylef/formulae/swiftenv
+#   echo 'if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi' >> ~/.yadr/zsh/private.zsh
+#   swiftenv rehash
+#   echo " ------------ END ------------"
+# fi
 
 while true; do
   read -p 'Now install web apps? [Y/n]' Answer

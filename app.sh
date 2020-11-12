@@ -42,6 +42,11 @@ brew cask install visual-studio-code
 brew cask install zoomus
 # brew cask install tandem
 brew cask install discord
+brew install pyenv
+brew install nodebrew
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"
+sudo installer -pkg /tmp/AWSCLIV2.pkg -target /
+
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer

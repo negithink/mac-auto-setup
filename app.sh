@@ -42,8 +42,15 @@ brew cask install visual-studio-code
 brew cask install zoomus
 # brew cask install tandem
 brew cask install discord
+brew cask install scroll-reverser # 動作未確認
+brew tap homebrew/cask-drivers # 動作未確認
+brew install logitech-control-center # 動作未確認
 brew install pyenv
 brew install nodebrew
+brew cask install toggl-track 
+brew cask install thunderbird
+
+# AWS-CLI
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"
 sudo installer -pkg /tmp/AWSCLIV2.pkg -target /
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -56,9 +63,10 @@ while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
   case $Answer in
     '' | [Yy]* )
-      # brew cask install microsoft-office
-      brew cask install intellij-idea
+      # brew cask install microsoft-office # install済み
       # brew cask install clip-studio-paint
+      brew cask install intellij-idea
+      brew cask install parallels
       break;
       ;;
     [Nn]* )

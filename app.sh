@@ -67,6 +67,7 @@ while true; do
       # brew cask install clip-studio-paint
       brew cask install intellij-idea
       brew cask install parallels
+      brew cask install microsoft-teams
       break;
       ;;
     [Nn]* )

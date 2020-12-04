@@ -49,9 +49,12 @@ brew install pyenv
 brew install nodebrew
 brew cask install toggl-track 
 brew cask install thunderbird
+brew cask install adobe-acrobat-reader
+brew cask install tableplus
 
 # For Work
 brew cask install coolterm
+brew install mysql
 
 # AWS-CLI
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"

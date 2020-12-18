@@ -47,10 +47,12 @@ brew tap homebrew/cask-drivers # 動作未確認
 brew install logitech-control-center # 動作未確認
 brew install pyenv
 brew install nodebrew
+brew install tree
 brew cask install toggl-track 
 brew cask install thunderbird
 brew cask install adobe-acrobat-reader
 brew cask install tableplus
+
 
 # For Work
 brew cask install coolterm

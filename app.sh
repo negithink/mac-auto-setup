@@ -52,7 +52,7 @@ brew cask install toggl-track
 brew cask install thunderbird
 brew cask install adobe-acrobat-reader
 brew cask install tableplus
-
+npm install --global git-open
 
 # For Work
 brew cask install coolterm

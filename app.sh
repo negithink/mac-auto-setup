@@ -57,6 +57,9 @@ npm install --global git-open
 # For Work
 brew cask install coolterm
 brew install mysql
+brew install sops
+brew cask install postman
+brew install --cask sfdx
 
 # AWS-CLI
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"

@@ -49,6 +49,7 @@ brew install pyenv
 brew install nodebrew
 brew cask install toggl-track 
 brew cask install thunderbird
+brew cask install kindle
 
 # For Work
 brew cask install coolterm

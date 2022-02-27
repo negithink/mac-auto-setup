@@ -140,7 +140,7 @@ fi
 #
 if ! command_exists tex ; then
   echo " ------------ TeX ------------"
-  brew cask install mactex
+  brew install --cask mactex
   # Tex Live Utility > preference > path -> /Library/TeX/texbin
   version=$(tex -version | grep -oE '2[0-9]{3}' | head -1)
   echo $pass | sudo -S /usr/local/texlive/$version/bin/x86_64-darwin/tlmgr path add

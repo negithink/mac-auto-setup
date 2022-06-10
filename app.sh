@@ -53,6 +53,7 @@ brew install --cask thunderbird
 brew install --cask adobe-acrobat-reader
 brew install --cask tableplus
 npm install --global git-open
+brew install --cask drawio
 
 # For Work
 brew install --cask coolterm

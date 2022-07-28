@@ -54,6 +54,9 @@ brew install --cask adobe-acrobat-reader
 brew install --cask tableplus
 npm install --global git-open
 brew install --cask drawio
+brew install git-remote-codecommit
+npm install -g awsp
+brew install --cask clipy
 
 # For Work
 brew install --cask coolterm

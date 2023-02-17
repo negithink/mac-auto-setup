@@ -48,6 +48,7 @@ brew install logitech-control-center # 動作未確認
 brew install pyenv
 brew install nodebrew
 brew install tree
+brew install --cask monitorcontrol
 brew install --cask toggl-track 
 brew install --cask thunderbird
 brew install --cask adobe-acrobat-reader

@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOS
+cat <<EOS
 
  AkkeyLab
 
@@ -42,14 +42,14 @@ brew install --cask visual-studio-code
 brew install --cask zoomus
 # brew install --cask tandem
 brew install --cask discord
-brew install --cask scroll-reverser # 動作未確認
-brew tap homebrew/cask-drivers # 動作未確認
+brew install --cask scroll-reverser  # 動作未確認
+brew tap homebrew/cask-drivers       # 動作未確認
 brew install logitech-control-center # 動作未確認
 brew install pyenv
 brew install nodebrew
 brew install tree
 brew install --cask monitorcontrol
-brew install --cask toggl-track 
+brew install --cask toggl-track
 brew install --cask thunderbird
 brew install --cask adobe-acrobat-reader
 brew install --cask tableplus
@@ -57,7 +57,14 @@ npm install --global git-open
 brew install --cask drawio
 brew install git-remote-codecommit
 npm install -g awsp
+brew install --cask mysqlworkbench
+brew install --cask session-manager-plugin
 brew install --cask clipy
+brew install --cask lg-onscreen-control
+brew install imagemagick
+brew install peco # zsh
+brew install --cask kindle
+brew install --cask omnidisksweeper
 
 # For Work
 brew install --cask coolterm
@@ -68,7 +75,35 @@ brew install --cask sfdx
 brew tap heroku/brew
 brew install heroku
 brew install postgresql
+brew install --cask dbeaver-community
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+brew install phpbrew
+brew install jq
+brew install gh
+brew install hub
+brew install --cask keycastr
+brew install pass
+brew install dmenu
+brew install act
+brew install actionlint
+brew install php-cs-fixer
+brew install librsvg
+brew install plantuml
+
+# For CFn
+brew install cfn-format
+brew install ruby brew-gem
+brew gem install cfn-nag
+
+# Goenv
 brew install goenv
+GO_VER=$(goenv install -l | tail -1 | sed 's/  //g')
+goenv install -f ${GO_VER}
+goenv global ${GO_VER}
+
+# terraform
+brew install tfenv
+tfenv install latest
 
 # AWS-CLI
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"
@@ -78,25 +113,26 @@ pyenv install 3.9.0
 pyenv global 3.9.0
 pip3 install aws-mfa
 brew install direnv
+brew install amazon-ecs-cli
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
   case $Answer in
-    '' | [Yy]* )
-      # brew install --cask microsoft-office # install済み
-      # brew install --cask clip-studio-paint
-      brew install --cask intellij-idea
-      brew install --cask parallels
-      brew install --cask microsoft-teams
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip install"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
+  '' | [Yy]*)
+    # brew install --cask microsoft-office # install済み
+    # brew install --cask clip-studio-paint
+    brew install --cask intellij-idea
+    brew install --cask parallels
+    brew install --cask microsoft-teams
+    break
+    ;;
+  [Nn]*)
+    echo "Skip install"
+    break
+    ;;
+  *)
+    echo Please answer YES or NO.
+    ;;
   esac
-done;
+done
 echo " ------------ END ------------"
-

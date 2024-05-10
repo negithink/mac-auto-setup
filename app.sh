@@ -89,6 +89,7 @@ brew install actionlint
 brew install php-cs-fixer
 brew install librsvg
 brew install plantuml
+brew install --cask mosaic
 
 # For CFn
 brew install cfn-format

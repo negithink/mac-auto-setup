@@ -77,9 +77,11 @@ brew install heroku
 brew install postgresql
 brew install --cask dbeaver-community
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
 brew install phpbrew
 brew install jq
 brew install gh
+gh ext install meiji163/gh-notify
 brew install hub
 brew install --cask keycastr
 brew install pass
@@ -89,6 +91,10 @@ brew install actionlint
 brew install php-cs-fixer
 brew install librsvg
 brew install plantuml
+brew install source-highlight
+
+# For Rust/cargo
+curl https://sh.rustup.rs -sSf | sh
 
 # For CFn
 brew install cfn-format
@@ -114,6 +120,8 @@ pyenv global 3.9.0
 pip3 install aws-mfa
 brew install direnv
 brew install amazon-ecs-cli
+
+brew install fzf ripgrep bat
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer

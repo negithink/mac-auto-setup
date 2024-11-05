@@ -28,7 +28,7 @@ brew install --cask google-japanese-ime
 brew install --cask swimat
 brew install --cask visual-studio-code
 # brew install --cask gyazo
-brew install --cask zoomus
+brew install --cask zoom
 # brew install --cask tandem
 brew install --cask discord
 brew install --cask scroll-reverser
@@ -39,29 +39,32 @@ brew install tree
 brew install --cask monitorcontrol
 brew install --cask toggl-track
 brew install --cask adobe-acrobat-reader
-brew install --cask tableplus
+# brew install --cask tableplus
 npm install --global git-open
 brew install --cask drawio
 brew install git-remote-codecommit
 npm install -g awsp
+# brew install --cask mysqlworkbench
 brew install --cask session-manager-plugin
 brew install --cask clipy
 brew install imagemagick
 brew install peco # zsh
 brew install --cask kindle
 brew install --cask omnidisksweeper
+cargo install toggl
 
 # For Work
 brew install mysql
 # brew install sops
 brew install --cask postman
 # brew install --cask sfdx
-brew tap heroku/brew
+# brew tap heroku/brew
 # brew install heroku
-brew install postgresql
+# brew install postgresql
 brew install --cask dbeaver-community
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+brew install phpbrew
 brew install jq
 brew install gh
 gh ext install meiji163/gh-notify
@@ -74,7 +77,10 @@ brew install actionlint
 # brew install php-cs-fixer
 # brew install librsvg
 brew install plantuml
-brew install source-highlight
+brew install --cask mosaic
+brew install watch
+brew install coreutils # for gdate
+brew install --cask karabiner-elements
 
 # For CFn
 brew install cfn-format
@@ -109,9 +115,9 @@ while true; do
   '' | [Yy]*)
     # brew install --cask microsoft-office # install済み
     # brew install --cask clip-studio-paint
-    brew install --cask intellij-idea
-    brew install --cask parallels
-    brew install --cask microsoft-teams
+    # brew install --cask intellij-idea
+    # brew install --cask parallels
+    # brew install --cask microsoft-teams
     break
     ;;
   [Nn]*)

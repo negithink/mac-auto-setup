@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOS
+cat <<EOS
 
  AkkeyLab
 
@@ -9,13 +9,13 @@ cat << EOS
 EOS
 
 function command_exists {
-  command -v "$1" > /dev/null;
+  command -v "$1" >/dev/null
 }
 
 #
 # Install homebrew.
 #
-if ! command_exists brew ; then
+if ! command_exists brew; then
   echo " --------- Homebrew ----------"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
@@ -27,10 +27,11 @@ fi
 #
 # Install git
 #
-if ! command_exists git ; then
+if ! command_exists git; then
   echo " ------------ Git ------------"
   brew install git
   git --version
+  git config --global credential.helper store
   echo " ------------ END ------------"
 fi
 

@@ -9,6 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
+DEFAULT_USER=""
 
 SAVEHIST=100000
 
@@ -20,6 +21,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # User configuration
 alias vlc='open -n /Applications/VLC.app'
@@ -107,7 +111,7 @@ aigh() {
 alias act='act --container-architecture linux/amd64'
 
 # gdate
-alias date='gdate'
+# alias date='gdate'
 
 # fd - cd to selected directory
 # https://qiita.com/kamykn/items/aa9920f07487559c0c7e
@@ -211,8 +215,8 @@ fadd() {
 }
 
 # zplug
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# export ZPLUG_HOME=/opt/homebrew/opt/zplug
+# source $ZPLUG_HOME/init.zsh
 
 # go
 . "$HOME/.cargo/env"

@@ -14,7 +14,6 @@ EOS
 echo " ---- Mac App Store apps -----"
 brew install mas
 mas install 425424353  # The Unarchiver (3.11.1)
-mas install 549083868 #  # Display Menu (2.2.3)
 mas install 539883307 # LINE (6.3.2)
 mas install 425264550 # Disk Speed Test (3.2)
 mas install 409183694 # Keynote (10.2)
@@ -23,7 +22,6 @@ mas install 668208984 # GIPHY CAPTURE (4.1)
 mas install 973213640 # MSG Viewer for Outlook (3.99.2)
 mas install 973134470 # Be Focused (2.0.2)
 mas install 1153157709 # Speedtest (1.18)
-mas install 409203825 # Numbers (5.3)
 mas install 497799835 # Xcode (12.0.1)
 mas install 736189492 # Notability (4.4.1)
 mas install 409201541 # Pages (7.3)

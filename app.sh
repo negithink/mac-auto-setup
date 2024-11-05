@@ -14,7 +14,6 @@ EOS
 echo " ----- Install web apps ------"
 # brew install --cask 1password
 # brew install --cask android-file-transfer
-brew install --cask java
 # brew install --cask android-studio
 # brew install --cask arduino
 # brew install --cask astropad
@@ -39,7 +38,7 @@ brew install --cask google-japanese-ime
 brew install --cask visual-studio-code
 # brew install --cask adobe-creative-cloud
 # brew install --cask gyazo
-brew install --cask zoomus
+brew install --cask zoom
 # brew install --cask tandem
 # brew install --cask discord
 brew install --cask scroll-reverser  # 動作未確認
@@ -49,8 +48,8 @@ brew install pyenv
 brew install nodebrew
 brew install tree
 brew install --cask monitorcontrol
-brew install --cask toggl-track
-brew install --cask thunderbird
+brew install --cask toggl
+# brew install --cask thunderbird
 brew install --cask adobe-acrobat-reader
 # brew install --cask tableplus
 npm install --global git-open
@@ -65,6 +64,7 @@ brew install imagemagick
 brew install peco # zsh
 brew install --cask kindle
 brew install --cask omnidisksweeper
+cargo install toggl
 
 # For Work
 # brew install --cask coolterm
@@ -77,6 +77,7 @@ brew install --cask postman
 # brew install postgresql
 brew install --cask dbeaver-community
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 brew install phpbrew
 brew install jq
 brew install gh
@@ -90,6 +91,9 @@ brew install php-cs-fixer
 brew install librsvg
 brew install plantuml
 brew install --cask mosaic
+brew install watch
+brew install coreutils # for gdate
+brew install --cask karabiner-elements
 
 # For CFn
 brew install cfn-format

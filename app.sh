@@ -17,7 +17,7 @@ echo " ----- Install web apps ------"
 brew install --cask openjdk # https://zenn.dev/roronya/articles/20230213184800
 # brew install --cask arduino
 # brew install --cask cyberduck
-brew install --cask docker
+# brew install --cask docker
 # brew install --cask duet
 # brew install --cask eclipse-java
 # brew install --cask google-chrome # exist
@@ -71,6 +71,8 @@ brew install actionlint
 # brew install watch
 # brew install coreutils # for gdate
 brew install --cask karabiner-elements
+brew install --cask linearmouse
+brew install --cask rectangle
 
 # For CFn
 brew install cfn-format
@@ -86,6 +88,13 @@ goenv global ${GO_VER}
 # terraform
 brew install tfenv
 tfenv install latest
+
+# k8s
+brew install kubectl
+brew install kustomize
+
+# AWS VPN Client
+brew install --cask aws-vpn-client
 
 # AWS-CLI
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"

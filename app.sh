@@ -18,6 +18,7 @@ brew install --cask openjdk # https://zenn.dev/roronya/articles/20230213184800
 # brew install --cask arduino
 # brew install --cask cyberduck
 # brew install --cask docker
+brew install --cask rancher
 # brew install --cask duet
 # brew install --cask eclipse-java
 # brew install --cask google-chrome # exist

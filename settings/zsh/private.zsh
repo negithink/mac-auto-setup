@@ -18,6 +18,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-z
+  git-open
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -29,11 +30,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 alias vlc='open -n /Applications/VLC.app'
 
 # work alias
-work_dir="~/Repository/work-note"
-alias wn_cd_today='cd ~/Repository/'$work_dir'/$(date "+%Y-%m-%d")'
-alias wn_cd_yesterday='cd ~/Repository/'$work_dir'/'$(date -v-1d "+%Y-%m-%d")
-alias wn_cd_yesterday_print_date='cd ~/Repository/'$work_dir'/'$(date -v-1d "+%Y-%m-%d")
-alias wn_mkdir_today='~/Repository/'$work_dir'/today_mkdir.sh'
+work_dir=""
+repository_dir=""
+alias wn_cd_today='cd ~/'$repository_dir'/'$work_dir'/$(date "+%Y-%m-%d")'
+alias wn_cd_yesterday='cd ~/'$repository_dir'/'$work_dir'/'$(date -v-1d "+%Y-%m-%d")
+alias wn_cd_yesterday_print_date='cd ~/'$repository_dir'/'$work_dir'/'$(date -v-1d "+%Y-%m-%d")
+alias wn_mkdir_today='~/'$repository_dir'/'$work_dir'/today_mkdir.sh'
 
 # tools
 alias rmlf='tr -d "\n"'
@@ -41,6 +43,59 @@ alias ecr_login='aws ecr get-login-password --region ap-northeast-1 | docker log
 
 # tmux
 alias tmux_detached_killall='tmux ls -F "#{session_name}:#{session_attached}" | awk -F: "/0\$/ {print \$1}" | xargs -I {} tmux kill-session -t {}'
+
+PERCOL=fzf
+if [[ ! -n $TMUX && $- == *l* ]]; then
+  # get the IDs
+  ID="`tmux list-sessions`"
+  if [[ -z "$ID" ]]; then
+    tmux new-session
+  fi
+  create_new_session="Create New Session"
+  ID="$ID\n${create_new_session}:"
+  ID="`echo $ID | $PERCOL | cut -d: -f1`"
+  if [[ "$ID" = "${create_new_session}" ]]; then
+    tmux new-session
+  elif [[ -n "$ID" ]]; then
+    tmux attach-session -t "$ID"
+  else
+    :  # Start terminal normally
+  fi
+fi
+
+# -----------
+# tmuxセッション名を現在のウィンドウのディレクトリに基づいて更新する関数
+
+function update_tmux_session_name {
+  if [ -n "$TMUX" ]; then
+    # 現在のセッションIDを取得
+    local session_id=$(tmux display-message -p '#S')
+
+    # 現在のウィンドウのパスを取得
+    local current_path=$(tmux display-message -p '#{pane_current_path}')
+
+    # ホームディレクトリ以下のパスを表示
+    local path_display=${current_path/#$HOME/\~}
+
+    # セッションIDの数字部分を取得
+    local session_numeric_id=$(echo "$session_id" | grep -o '^[0-9]\+')
+
+    # 新しいセッション名を作成（セッションIDの数字部分をプレフィックスとして使用）
+    local new_session_name="${session_numeric_id} ${path_display}"
+
+    # セッション名を変更
+    tmux rename-session -t "$session_id" "$new_session_name"
+  fi
+}
+
+# シェル起動時に関数を実行
+update_tmux_session_name
+
+# プロンプト表示ごとにセッション名を更新
+precmd_functions+=(update_tmux_session_name)
+# -----------
+
+
 
 # homebrew setting
 export HOMEBREW_NO_INSTALL_CLEANUP=1
@@ -89,6 +144,19 @@ yqdiff() {
   source_file="$1"
   dest_file="$2"
   diff <(yq 'sort_keys(.)' "$source_file") <(yq 'sort_keys(.)' "$dest_file")
+}
+
+# markdown2confluence
+## ファイルパスからjira形式へ
+## vscodeからファイルパスを取得するには、shift+cmd+P → File:Copy path of activefileで
+md2jira(){
+  markdown_file=$(mktemp)
+  test -n "$1" && markdown2confluence "$1" | tee >(pbcopy) || echo "require argument: md2jira ~/text.md";false
+}
+## クリップボードからjira形式へ
+mdcb2jira(){
+  markdown_file=$(mktemp)
+  pbpaste > $markdown_file && markdown2confluence $markdown_file | tee >(pbcopy)
 }
 
 # rbenv
@@ -233,3 +301,40 @@ export DIRENV_LOG_FORMAT=""
 LESSPIPE=$(which src-hilite-lesspipe.sh)
 export LESSOPEN="| ${LESSPIPE} %s"
 export LESS=' -R -X -F '
+
+# mas
+mas_install(){
+  if [[ ! "$1" ]];then
+    echo no arg
+    return 1
+  fi
+  APP_NAME="$@"
+  APP_ID=$(mas search "$APP_NAME"|head -1|grep "$APP_NAME"|grep -o '[0-9]\{3,\}')
+  APP_INFO=$(mas info $APP_ID)
+
+  if [[ $(mas list|grep $APP_NAME) ]];then
+    echo "Already installed. abort."
+    return 1
+  fi
+
+  if [[ $(echo "$APP_INFO"|grep "無料") ]];then
+    echo "$APP_INFO"
+    read "yn?(y/n): "
+    case "$yn" in
+      y|Y) mas purchase $APP_ID
+        ;;
+      *) echo  "abort."
+         return 1
+        ;;
+    esac
+  else
+    echo "need purchase.abort."
+    return 1
+  fi
+}
+# k8s
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+

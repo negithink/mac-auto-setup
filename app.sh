@@ -94,6 +94,20 @@ tfenv install latest
 # k8s
 brew install kubectl
 brew install kustomize
+brew install helm
+brew install krew
+kubectl krew install neat
+kubectl krew install view-secret
+brew install kubectx
+
+brew tap carvel-dev/carvel
+brew install vendir
+
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+brew install argocd
+
+brew install kind
 
 # AWS VPN Client
 brew install --cask aws-vpn-client

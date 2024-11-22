@@ -24,7 +24,10 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # brew
+## apple sillicon
 eval "$(/opt/homebrew/bin/brew shellenv)"
+## x86
+# eval "$(/usr/local/bin/brew shellenv)"
 
 # User configuration
 alias vlc='open -n /Applications/VLC.app'
@@ -47,19 +50,19 @@ alias tmux_detached_killall='tmux ls -F "#{session_name}:#{session_attached}" | 
 PERCOL=fzf
 if [[ ! -n $TMUX && $- == *l* ]]; then
   # get the IDs
-  ID="`tmux list-sessions`"
+  ID="$(tmux list-sessions)"
   if [[ -z "$ID" ]]; then
     tmux new-session
   fi
   create_new_session="Create New Session"
   ID="$ID\n${create_new_session}:"
-  ID="`echo $ID | $PERCOL | cut -d: -f1`"
+  ID="$(echo $ID | $PERCOL | cut -d: -f1)"
   if [[ "$ID" = "${create_new_session}" ]]; then
     tmux new-session
   elif [[ -n "$ID" ]]; then
     tmux attach-session -t "$ID"
   else
-    :  # Start terminal normally
+    : # Start terminal normally
   fi
 fi
 
@@ -94,8 +97,6 @@ update_tmux_session_name
 # プロンプト表示ごとにセッション名を更新
 precmd_functions+=(update_tmux_session_name)
 # -----------
-
-
 
 # homebrew setting
 export HOMEBREW_NO_INSTALL_CLEANUP=1
@@ -149,14 +150,15 @@ yqdiff() {
 # markdown2confluence
 ## ファイルパスからjira形式へ
 ## vscodeからファイルパスを取得するには、shift+cmd+P → File:Copy path of activefileで
-md2jira(){
+md2jira() {
   markdown_file=$(mktemp)
-  test -n "$1" && markdown2confluence "$1" | tee >(pbcopy) || echo "require argument: md2jira ~/text.md";false
+  test -n "$1" && markdown2confluence "$1" | tee >(pbcopy) || echo "require argument: md2jira ~/text.md"
+  false
 }
 ## クリップボードからjira形式へ
-mdcb2jira(){
+mdcb2jira() {
   markdown_file=$(mktemp)
-  pbpaste > $markdown_file && markdown2confluence $markdown_file | tee >(pbcopy)
+  pbpaste >$markdown_file && markdown2confluence $markdown_file | tee >(pbcopy)
 }
 
 # rbenv
@@ -303,29 +305,31 @@ export LESSOPEN="| ${LESSPIPE} %s"
 export LESS=' -R -X -F '
 
 # mas
-mas_install(){
-  if [[ ! "$1" ]];then
+mas_install() {
+  if [[ ! "$1" ]]; then
     echo no arg
     return 1
   fi
   APP_NAME="$@"
-  APP_ID=$(mas search "$APP_NAME"|head -1|grep "$APP_NAME"|grep -o '[0-9]\{3,\}')
+  APP_ID=$(mas search "$APP_NAME" | head -1 | grep "$APP_NAME" | grep -o '[0-9]\{3,\}')
   APP_INFO=$(mas info $APP_ID)
 
-  if [[ $(mas list|grep $APP_NAME) ]];then
+  if [[ $(mas list | grep $APP_NAME) ]]; then
     echo "Already installed. abort."
     return 1
   fi
 
-  if [[ $(echo "$APP_INFO"|grep "無料") ]];then
+  if [[ $(echo "$APP_INFO" | grep "無料") ]]; then
     echo "$APP_INFO"
     read "yn?(y/n): "
     case "$yn" in
-      y|Y) mas purchase $APP_ID
-        ;;
-      *) echo  "abort."
-         return 1
-        ;;
+    y | Y)
+      mas purchase $APP_ID
+      ;;
+    *)
+      echo "abort."
+      return 1
+      ;;
     esac
   else
     echo "need purchase.abort."
@@ -337,4 +341,3 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-

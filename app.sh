@@ -37,6 +37,7 @@ brew install --cask visual-studio-code
 brew tap homebrew/cask-drivers
 brew install pyenv
 brew install nodebrew
+brew install uv
 brew install tree
 # brew install --cask monitorcontrol
 # brew install --cask adobe-acrobat-reader # exist

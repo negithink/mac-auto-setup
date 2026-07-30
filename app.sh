@@ -43,19 +43,20 @@ brew install tree
 # brew install --cask adobe-acrobat-reader # exist
 # brew install --cask tableplus
 npm install --global git-open
-# brew install --cask drawio
-# brew install git-remote-codecommit
+brew install --cask drawio
+brew install git-remote-codecommit
 # npm install -g awsp
 # brew install --cask mysqlworkbench
 brew install --cask session-manager-plugin
 brew install --cask clipy
-# brew install imagemagick
+brew install imagemagick
 brew install peco # zsh
 # brew install --cask kindle
 # brew install --cask omnidisksweeper
+brew install --cask windows-app
 
 # For Work
-# brew install mysql
+brew install mysql
 brew install --cask postman
 brew install --cask dbeaver-community
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -65,14 +66,14 @@ git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/pl
 git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
 
 brew install jq
-# brew install gh
+brew install gh
 # gh ext install meiji163/gh-notify
 # brew install hub
 brew install act
 brew install actionlint
 # brew install plantuml
 # brew install --cask mosaic
-# brew install watch
+brew install watch
 # brew install coreutils # for gdate
 brew install --cask karabiner-elements
 brew install --cask linearmouse
@@ -80,6 +81,7 @@ brew install --cask rectangle
 
 # For CFn
 brew install cfn-format
+brew install cfn-lint
 brew install ruby brew-gem
 brew gem install cfn-nag
 
@@ -122,9 +124,26 @@ pyenv install 3.13.0
 pyenv global 3.13.0
 # pip3 install aws-mfa
 brew install direnv
-# brew install amazon-ecs-cli
+brew install amazon-ecs-cli
 
 brew install fzf ripgrep bat
+
+# Added after the initial setup.
+brew install awslogs blueutil conftest ffmpeg ghi git glab gnupg graphviz jira-cli kafka kubecolor lesspipe macvim mas mysql-client opa openjdk@21 pandoc rbenv reattach-to-user-namespace ruby-build source-highlight specify tmux vegeta wget yarn yq zsh
+brew tap grafana/grafana
+brew install gcx
+
+brew install --cask chatgpt
+brew install --cask claude-code
+brew install --cask codex-app
+brew install --cask copilot-cli
+brew install --cask corretto@17
+brew install --cask deepl
+brew install --cask displaylink
+brew install --cask gcloud-cli
+brew install --cask google-cloud-sdk
+brew install --cask miro
+brew install --cask pullbar
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer

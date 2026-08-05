@@ -141,6 +141,6 @@ cask "deepl"
 cask "displaylink"
 cask "gcloud-cli" # supersedes the old google-cloud-sdk token
 cask "miro"
-# cask "pullbar" # removed upstream, no longer published
+# PullBar has no cask; it ships via the App Store. See Brewfile.appstore.
 
 # Mac App Store apps live in Brewfile.appstore, applied by appstore.sh.

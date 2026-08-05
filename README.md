@@ -28,6 +28,25 @@ Update apps and settings:
 ~/mac-auto-setup/update.sh
 ```
 
+`app.sh` asks for the sudo password once up front and keeps the timestamp
+alive, so the pkg-based casks do not stop to prompt for it again.
+
+## Package list
+Packages are declared in Brewfiles and applied with `brew bundle`, so both
+scripts are safe to re-run: anything already installed is skipped.
+
+| File | Applied by | Contents |
+|:--|:--|:--|
+|`Brewfile`|`app.sh`|taps, formulae, casks, krew plugins|
+|`Brewfile.appstore`|`appstore.sh`|Mac App Store apps (via `mas`)|
+|`Brewfile.license`|`app.sh` (on the `[Y/n]` prompt)|apps needing a paid licence|
+
+To add or drop an app, edit the Brewfile rather than the script; commenting a
+line out is enough to skip it. To capture what is currently on the machine:
+```
+brew bundle dump --force --describe
+```
+
 ## Apps config file
 | Apps | Config | Remarks |
 |:----------:|:-----------|:-------------|

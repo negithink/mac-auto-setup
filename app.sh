@@ -22,37 +22,39 @@ brew install docker
 brew install docker-compose
 # brew install --cask duet
 # brew install --cask eclipse-java
-# brew install --cask google-chrome # exist
+brew install --cask google-chrome # exist
 brew install --cask iterm2
 # brew install --cask sourcetree
-# brew install --cask vlc
-# brew install --cask google-japanese-ime # exist
+brew install --cask vlc
+brew install --cask google-japanese-ime # exist
 # brew install --cask swimat
 brew install --cask visual-studio-code
 # brew install --cask gyazo
-# brew install --cask zoom # exist
+brew install --cask zoom # exist
 # brew install --cask tandem
-# brew install --cask discord
+brew install --cask discord
 # brew install --cask scroll-reverser
+brew install --cask messenger # facebook messenger
 brew tap homebrew/cask-drivers
 brew install pyenv
 brew install nodebrew
 brew install uv
 brew install tree
 # brew install --cask monitorcontrol
-# brew install --cask adobe-acrobat-reader # exist
-# brew install --cask tableplus
+brew install --cask adobe-acrobat-reader # exist
+brew install --cask tableplus
 npm install --global git-open
+brew install git-open
 brew install --cask drawio
 brew install git-remote-codecommit
-# npm install -g awsp
-# brew install --cask mysqlworkbench
+npm install -g awsp
+brew install --cask mysqlworkbench
 brew install --cask session-manager-plugin
 brew install --cask clipy
 brew install imagemagick
 brew install peco # zsh
-# brew install --cask kindle
-# brew install --cask omnidisksweeper
+brew install --cask kindle
+brew install --cask omnidisksweeper
 brew install --cask windows-app
 
 # For Work
@@ -67,14 +69,14 @@ git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
 
 brew install jq
 brew install gh
-# gh ext install meiji163/gh-notify
-# brew install hub
+gh ext install meiji163/gh-notify
+brew install hub
 brew install act
 brew install actionlint
-# brew install plantuml
-# brew install --cask mosaic
+brew install plantuml
+brew install --cask mosaic
 brew install watch
-# brew install coreutils # for gdate
+brew install coreutils # for gdate
 brew install --cask karabiner-elements
 brew install --cask linearmouse
 brew install --cask rectangle
@@ -144,6 +146,8 @@ brew install --cask gcloud-cli
 brew install --cask google-cloud-sdk
 brew install --cask miro
 brew install --cask pullbar
+
+curl -fsSL https://claude.ai/install.sh | bash
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer

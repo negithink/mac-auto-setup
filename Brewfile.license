@@ -1,0 +1,10 @@
+# Brewfile.license -- apps that need a paid licence or a sign-in.
+#
+# Applied only when app.sh is answered with "Y" at the licence prompt, so an
+# unattended run never pulls these down.
+
+# cask "microsoft-office" # install済み
+# cask "clip-studio-paint"
+# cask "intellij-idea"
+# cask "parallels"
+# cask "microsoft-teams"

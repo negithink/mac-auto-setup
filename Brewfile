@@ -5,32 +5,24 @@
 
 # ---------------------------------------------------------------- taps ----
 tap "carvel-dev/carvel"
-tap "brew-gem/gems"
+tap "shaharia-lab/tap"
+# trust "carvel-dev/carvel" # maybe should run manual
+# trust --formula shaharia-lab/tap/slackcli # maybe should run manual
 
 # ------------------------------------------------------------- web apps ---
-# cask "1password"
-# cask "android-file-transfer"
+
 brew "openjdk" # https://zenn.dev/roronya/articles/20230213184800
 # cask "arduino-ide" # the plain "arduino" cask was removed upstream
-# cask "cyberduck"
 cask "rancher"
-brew "docker"
-brew "docker-compose"
-# cask "duet"
-# cask "eclipse-java"
+
+
 cask "google-chrome"
 cask "iterm2"
-# cask "sourcetree"
-cask "vlc"
+
 cask "google-japanese-ime"
-# cask "swimat"
 cask "visual-studio-code"
-# cask "gyazo"
 cask "zoom"
-# cask "tandem"
-cask "discord"
-# cask "scroll-reverser"
-cask "messenger" # facebook messenger
+
 brew "pyenv"
 brew "nodebrew"
 brew "uv"
@@ -46,33 +38,47 @@ cask "session-manager-plugin"
 cask "clipy"
 brew "imagemagick"
 brew "peco" # zsh
-# cask "kindle" # removed upstream, no longer published by Amazon
 cask "omnidisksweeper"
 cask "windows-app"
 
-# ------------------------------------------------------------- for work ---
-brew "mysql"
-cask "postman"
-cask "dbeaver-community"
-
+cask "karabiner-elements"
+cask "linearmouse"
+cask "rectangle"
 brew "jq"
 brew "gh"
 brew "hub"
 brew "act"
 brew "actionlint"
 brew "plantuml"
-cask "mosaic"
 brew "watch"
 brew "coreutils" # for gdate
-cask "karabiner-elements"
-cask "linearmouse"
-cask "rectangle"
+
+# ------------------------------------------------------------- for private -
+# brew "docker"
+# brew "docker-compose"
+# cask "discord"
+# cask "vlc"
+# cask "1password"
+# cask "android-file-transfer"
+# cask "messenger" # facebook messenger
+# cask "duet"
+# cask "eclipse-java"
+
+# ------------------------------------------------------------- for work ---
+brew "mysql"
+# cask "postman" # maybe bk blocked
+cask "dbeaver-community"
+brew "codex"
+
+
+
 
 # ------------------------------------------------------------------ CFn ---
 brew "cfn-format"
 brew "cfn-lint"
 brew "ruby"
-brew "brew-gem" # cfn-nag is installed via `brew gem` in app.sh
+# tap "brew-gem/gems"
+# brew "brew-gem" # cfn-nag is installed via `brew gem` in app.sh
 
 # -------------------------------------------------------------- runtimes --
 brew "goenv"
@@ -91,7 +97,7 @@ krew "neat"
 krew "view-secret"
 
 # ------------------------------------------------------------------ AWS ---
-cask "aws-vpn-client"
+# cask "aws-vpn-client"
 brew "direnv"
 brew "amazon-ecs-cli"
 
@@ -133,14 +139,14 @@ brew "yq"
 brew "zsh"
 
 cask "chatgpt"
-cask "claude-code"
+# cask "claude-code" # maybe bk blocked
 cask "codex-app"
 cask "copilot-cli"
 cask "corretto@17"
-cask "deepl"
+# cask "deepl" # maybe bk blocked
 cask "displaylink"
 cask "gcloud-cli" # supersedes the old google-cloud-sdk token
 cask "miro"
-# PullBar has no cask; it ships via the App Store. See Brewfile.appstore.
 
 # Mac App Store apps live in Brewfile.appstore, applied by appstore.sh.
+

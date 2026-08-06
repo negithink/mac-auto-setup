@@ -50,6 +50,7 @@ gh ext install meiji163/gh-notify
 if command -v npm >/dev/null 2>&1; then
   npm install --global git-open
   npm install --global awsp
+  npm install --global mdjanai
 else
   echo "npm not found, skipping global npm packages" >&2
 fi
